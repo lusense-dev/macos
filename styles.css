@@ -1868,3 +1868,351 @@ footer {
     justify-content: center !important;
   }
 }
+@media (max-width: 768px) {
+  /* The main approach: completely hide this sidebar menu on mobile */
+  .interface-screen .cheat-menu {
+    display: none !important;
+  }
+  
+  /* Make the menu preview take up the full width */
+  .menu-preview {
+    width: 100% !important;
+    border-radius: 15px !important; /* Round all corners */
+  }
+  
+  /* Make the interface screen not use flexbox on mobile */
+  .interface-screen {
+    display: block !important;
+  }
+  
+  /* Alternative option: if you want to stack the menu horizontally instead of vertically */
+  /* Uncomment this and comment out the display:none above if you prefer this approach */
+  /*
+  .interface-screen {
+    flex-direction: column !important;
+  }
+  
+  .cheat-menu {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 60px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    border-radius: 15px 15px 0 0 !important;
+  }
+  
+  .menu-item {
+    flex: 0 0 auto !important;
+    padding: 10px !important;
+    white-space: nowrap !important;
+  }
+  
+  .menu-preview {
+    border-radius: 0 0 15px 15px !important;
+  }
+  */
+  
+  /* Make the trusted badge appear in a better position on mobile */
+  .trusted-badge-outer {
+    bottom: 10px !important;
+    right: 10px !important;
+    padding: 8px 12px !important;
+    transform: scale(0.9) !important;
+  }
+}
+
+/* For very small screens, further adjustments */
+@media (max-width: 480px) {
+  /* Make the interface take up less vertical space */
+  .interface-screen {
+    max-height: 300px !important;
+  }
+  
+  .menu-preview {
+    height: 100% !important;
+  }
+  
+  /* Scale down the trusted badge even more */
+  .trusted-badge-outer {
+    transform: scale(0.8) !important;
+    bottom: 5px !important;
+    right: 5px !important;
+  }
+  
+  /* Optional: If you want to hide the entire interface on very small screens */
+  /*
+  .interface-wrapper {
+    display: none !important;
+  }
+
+@media (max-width: 768px) {
+  /* Hide the entire interface container */
+  .interface-wrapper,
+  .interface-container,
+  .interface-screen,
+  .cheat-menu,
+  .menu-preview,
+  .trusted-badge-outer {
+    display: none !important;
+  }
+  
+  /* Add a floating trust badge instead */
+  .hero-visual::after {
+    content: "Trusted Service Since 2021";
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(10, 15, 30, 0.8);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(52, 152, 255, 0.3);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  
+  /* Add a blue circle icon before the text */
+  .hero-visual::before {
+    content: "";
+    position: fixed;
+    bottom: 29px;
+    right: 173px; /* Position it to the left of the text */
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #3498ff;
+    z-index: 101;
+    box-shadow: 0 0 8px rgba(52, 152, 255, 0.7);
+  }
+  
+  /* Improve hero content spacing */
+  .hero-content {
+    padding-bottom: 60px; /* Add some space at the bottom */
+  }
+}
+
+/* For very small screens, adjust the badge */
+@media (max-width: 480px) {
+  .hero-visual::after {
+    bottom: 15px;
+    right: 15px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  
+  .hero-visual::before {
+    bottom: 23px;
+    right: 155px;
+    width: 10px;
+    height: 10px;
+  }
+}
+/* Position trust badge in the blank space */
+@media (max-width: 768px) {
+  /* On mobile only: Hide the interface screen */
+  .interface-screen {
+    display: none !important;
+  }
+  
+  /* On mobile only: Hide the trusted badge */
+  .trusted-badge-outer {
+    display: none !important;
+  }
+  
+  /* On mobile only: Fix the hero container layout */
+  .hero .container {
+    grid-template-columns: 1fr !important; /* Single column on mobile */
+    gap: 20px !important; /* Small gap */
+  }
+  
+  /* On mobile only: Adjust the hero-visual to take minimal space */
+  .hero-visual {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  
+  /* On mobile only: Keep interface container but make it invisible */
+  .interface-wrapper,
+  .interface-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+  }
+  
+  /* On mobile only: Fix hero section spacing */
+  .hero {
+    padding-top: 100px !important; /* Keep some top padding */
+    padding-bottom: 30px !important; /* Reduce bottom padding */
+  }
+  
+  /* On mobile only: Improve content layout */
+  .hero-content {
+    text-align: center !important; 
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Ensure desktop layout is preserved at larger sizes */
+@media (min-width: 769px) {
+  /* Explicitly preserve desktop layout */
+  .hero .container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* Two columns on desktop */
+  }
+  
+  .hero-visual {
+    display: block !important;
+    opacity: 1 !important;
+  }
+  
+  .interface-wrapper,
+  .interface-container,
+  .interface-screen {
+    display: block !important;
+    opacity: 1 !important;
+  }
+}
+/* Complete layout fix for both desktop and mobile */
+
+/* Desktop styles (default) */
+.interface-screen {
+  display: flex !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
+  width: 100% !important;
+  background: #131c32 !important;
+}
+
+.cheat-menu {
+  width: 250px !important;
+  background: #1a2035 !important;
+  border-radius: 20px 0 0 20px !important;
+  padding: 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.menu-preview {
+  flex: 1 !important;
+  background: #131c32 !important;
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  border-radius: 0 20px 20px 0 !important;
+  overflow: hidden !important;
+  padding: 20px !important;
+}
+
+.menu-item {
+  border-radius: 6px !important;
+  padding: 12px 15px !important;
+  transition: all 0.3s ease !important;
+}
+
+.menu-item.active {
+  background: rgba(52, 152, 255, 0.1) !important;
+}
+
+.menu-item.active i {
+  color: #3498ff !important;
+}
+
+/* Fix the preview area - add a gradient background */
+.menu-preview {
+  background: linear-gradient(135deg, #131c32, #1a243f) !important;
+}
+
+/* Fix trusted badge on desktop */
+.trusted-badge-outer {
+  position: absolute !important;
+  bottom: 15px !important;
+  right: 20px !important;
+  background: rgba(10, 15, 30, 0.8) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 12px !important;
+  padding: 12px 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3) !important;
+  z-index: 5 !important;
+  border: 1px solid rgba(52, 152, 255, 0.2) !important;
+}
+
+/* Mobile styles (max-width: 768px) */
+@media (max-width: 768px) {
+  /* On mobile only: Hide the interface entirely */
+  .interface-wrapper,
+  .interface-container,
+  .interface-screen,
+  .cheat-menu,
+  .menu-preview,
+  .trusted-badge-outer {
+    display: none !important;
+  }
+  
+  /* On mobile only: Fix the hero container layout */
+  .hero .container {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  
+  /* On mobile only: Adjust the hero-visual to take no space */
+  .hero-visual {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  
+  /* On mobile only: Fix hero section spacing */
+  .hero {
+    padding-top: 100px !important;
+    padding-bottom: 30px !important;
+  }
+  
+  /* On mobile only: Improve content layout */
+  .hero-content {
+    text-align: center !important; 
+    margin-bottom: 0 !important;
+    padding-bottom: 20px !important;
+  }
+  
+  /* On mobile only: Center the CTAs */
+  .cta-group {
+    justify-content: center !important;
+  }
+  
+  /* On mobile only: Center the stats */
+  .hero-stats {
+    justify-content: center !important;
+  }
+}
